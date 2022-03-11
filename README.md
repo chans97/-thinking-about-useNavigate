@@ -83,5 +83,42 @@ function DaysList() {
 }
 ```
 
+
+---
+### 코드 개선
+
+```
+const ShowPostList = ({ navigate }) => {
+  const [loading, setLoading] = useState(true);
+  const [isPost, setIsPost] = useState(false);
+  const [postList, setPostList] = useState([]);
+
+  // const navigate = useCallback(useNavigate, []);
+  // const navigate = useNavigate();
+
+  const goWrite = useCallback(() => {
+    navigate(-2);
+  }, []);
+  
+  ...
+  export default React.memo(ShowPostList);
+```
+
+부모 컴포넌트에서 const navigate = useNavigate(); 해서 건내준다.
+
+### 코드 개선 이후
+
+![image](https://user-images.githubusercontent.com/59525356/157876816-e7c49a2c-adf5-40d3-8715-01cc5ffb508d.png)
+원하던 대로 memo component가 re-render되지 않는다.
+
+![image](https://user-images.githubusercontent.com/59525356/157876927-ac3b1c38-469f-4e40-8eb7-6c5f34164750.png)
+
+ ShowPostList의Location의 Effect hook도 사라졌다.
+
+
+### 이후
+
+
 확실히 쓸만한 방법이지만, 모든 navigate관련 함수를 APP에서 관리해야 한다는 문제점이 있다.\
 이에 대해 더 좋은 해결책이 없을까 고민이다.
+모든 navigate관련 함수를 APP에서 관리했을 때의 side Effect도 아직은 모르겠다.

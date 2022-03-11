@@ -44,6 +44,7 @@ memo 처리된 ShowPostList가 다시 랜더된다. 이유는? Hook 5이다.
 ShowPostList의 Hook 5는 Location의 Effect이고 이는 navigation의 Effect로 추정된다.
 
 ### 해결
+-----
 
 이에 대한 고민은 나만 한 것은 역시 아니었다.\
 관련 토의 내용은 아래에 정리 되어 있다.
@@ -84,8 +85,8 @@ function DaysList() {
 ```
 
 
----
 ### 코드 개선
+-----
 
 ```
 const ShowPostList = ({ navigate }) => {
@@ -107,7 +108,7 @@ const ShowPostList = ({ navigate }) => {
 부모 컴포넌트에서 const navigate = useNavigate(); 해서 건내준다.
 
 ### 코드 개선 이후
-
+-----
 ![image](https://user-images.githubusercontent.com/59525356/157876816-e7c49a2c-adf5-40d3-8715-01cc5ffb508d.png)
 원하던 대로 memo component가 re-render되지 않는다.
 
@@ -117,7 +118,7 @@ const ShowPostList = ({ navigate }) => {
 
 
 ### 이후
-
+-----
 
 확실히 쓸만한 방법이지만, 모든 navigate관련 함수를 APP에서 관리해야 한다는 문제점이 있다.\
 이에 대해 더 좋은 해결책이 없을까 고민이다.

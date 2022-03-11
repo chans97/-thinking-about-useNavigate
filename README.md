@@ -80,7 +80,8 @@ function DaysList() {
   );
 
   return <div>{days.map((day) => <DayChart dayData={day} navigateToDay={navigateToDay} />)}</div>;
-}```
+}
+```
 
 확실히 쓸만한 방법이지만, 모든 navigate관련 함수를 APP에서 관리해야 한다는 문제점이 있다.\
 이에 대해 더 좋은 해결책이 없을까 고민이다.

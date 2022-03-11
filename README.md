@@ -105,10 +105,12 @@ const ShowPostList = ({ navigate }) => {
   export default React.memo(ShowPostList);
 ```
 
-부모 컴포넌트에서 const navigate = useNavigate(); 해서 건내준다.
+위 해결방안도 좋지만, 모든 함수를 useCallback으로 감싸서 props로 전달하는 것이 비효율적이라고 생각하여, 
+부모 컴포넌트에서 const navigate = useNavigate();만 해서 navigate만 건내준다.
 
 ### 코드 개선 이후
 -----
+
 ![image](https://user-images.githubusercontent.com/59525356/157876816-e7c49a2c-adf5-40d3-8715-01cc5ffb508d.png)
 원하던 대로 memo component가 re-render되지 않는다.
 
